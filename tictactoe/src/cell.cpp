@@ -38,6 +38,6 @@ CellState Cell::get_state() {
     return state;
 }
 
-void Cell::button_clicked(bool checked) {
+void Cell::button_clicked(bool _) {
     emit clicked(row, col);
 }
