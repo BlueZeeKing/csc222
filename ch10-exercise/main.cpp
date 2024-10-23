@@ -9,21 +9,17 @@ int main() {
     string input_line;
     getline(cin, input_line);
 
-    const char* raw_line = input_line.c_str();
-
     vector<int> nums;
     int num = 0;
 
-    while(*raw_line != '\0') {
-        if (*raw_line == ' ') {
+    for(string::iterator value = input_line.begin(); value != input_line.end(); value++) {
+        if (*value == ' ') {
             nums.push_back(num);
             num = 0;
         } else {
             num *= 10;
-            num += *raw_line - '0';
+            num += *value - '0';
         }
-
-        raw_line++;
     }
     nums.push_back(num);
 
