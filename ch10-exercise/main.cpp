@@ -16,7 +16,7 @@ int main() {
         if (*value == ' ') {
             nums.push_back(num);
             num = 0;
-        } else {
+        } else if (*value >= '0' && *value <= '9') {
             num *= 10;
             num += *value - '0';
         }
