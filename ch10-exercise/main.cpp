@@ -11,15 +11,27 @@ int main() {
 
     vector<int> nums;
     int num = 0;
+    bool is_negative = false;
 
     for(string::iterator value = input_line.begin(); value != input_line.end(); value++) {
         if (*value == ' ') {
+            if (is_negative) {
+                num *= -1;
+            }
             nums.push_back(num);
+
             num = 0;
+            is_negative = false;
+        } if (*value == '-' && (value == input_line.begin() || *(value - 1) == ' ')) {
+            is_negative = true; 
         } else if (*value >= '0' && *value <= '9') {
             num *= 10;
             num += *value - '0';
         }
+    }
+
+    if (is_negative) {
+        num *= -1;
     }
     nums.push_back(num);
 
