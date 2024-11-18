@@ -1,5 +1,7 @@
+#include <iostream>
 #include <sstream>
 #include <string>
+#include <utility>
 #include <vector>
 using namespace std;
 
@@ -38,4 +40,66 @@ vector<int> only_evens(const vector<int>& numbers) {
         }
     }
     return result;
+}
+
+vector<int> only_odds(const vector<int>& numbers) {
+    vector<int> result;
+    for (auto i = numbers.begin(); i < numbers.end(); i++) {
+        if (*i % 2 != 0) {
+            result.push_back(*i);
+        }
+    }
+    return result;
+}
+
+
+vector<int> nums_between(const vector<int>& numbers, int low, int high) {
+    vector<int> result;
+
+    for (auto i = numbers.begin(); i < numbers.end(); i++) {
+        if (*i <= high && *i >= low) {
+            result.push_back(*i);
+        }
+    }
+
+    return result;
+}
+
+double mean(const vector<int>& numbers) {
+    return (double) num_vector_sum(numbers) / (double) numbers.size();
+}
+
+double median(const vector<int>& numbers) {
+    int middle = numbers.size() / 2;
+
+    if (numbers.size() % 2 == 0) {
+        return (numbers[middle] + numbers[middle - 1]) / 2.0;    
+    }
+    return numbers[middle];
+}
+
+int mode(const vector<int>& numbers) {
+    vector<pair<int, int>> counts;
+
+    for (auto number = numbers.begin(); number < numbers.end(); number++) {
+        for (auto count = counts.begin(); count < counts.end(); count++) {
+            if (*number == count->first) {
+                count->second++;
+                break;
+            }
+        }
+
+        counts.push_back(pair(*number, 1));
+    }
+
+    int max_count = 0;
+    int mode_value = 0;
+    for (auto count = counts.begin(); count < counts.end(); count++) {
+        if (count->second > max_count) {
+            mode_value = count->first;
+            max_count = count->second;
+        }
+    }
+
+    return mode_value;
 }
