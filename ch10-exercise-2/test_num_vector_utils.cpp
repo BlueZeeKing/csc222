@@ -71,9 +71,9 @@ TEST_CASE("Testing mean function") {
 
 
 TEST_CASE("Testing median function") {
-    vector<int> nums = {11, 2, 13, 4, 10, 26, 7, 88, 19, 20, 14, 5, 32};
+    vector<int> nums = {2, 4, 5, 7, 10, 11, 13, 14, 19, 20, 26, 32, 88 };
     double median_value = median(nums);
-    CHECK_CLOSE_ENOUGH(median_value, 7);
+    CHECK_CLOSE_ENOUGH(median_value, 13);
 
     nums = { 1, 2, 3 };
     median_value = median(nums);

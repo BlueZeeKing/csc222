@@ -70,6 +70,9 @@ double mean(const vector<int>& numbers) {
     return (double) num_vector_sum(numbers) / (double) numbers.size();
 }
 
+/**
+ * numbers must be sorted
+ */
 double median(const vector<int>& numbers) {
     int middle = numbers.size() / 2;
 
