@@ -82,31 +82,27 @@ double median(const vector<int>& numbers) {
     return numbers[middle];
 }
 
-int mode(const vector<int>& numbers) {
-    vector<pair<int, int>> counts;
+vector<int> mode(const vector<int>& numbers) {
+    unordered_map<int, int> counts;
 
-    for (auto number = numbers.begin(); number < numbers.end(); number++) {
-        bool found = false;
-
-        for (auto count = counts.begin(); count < counts.end(); count++) {
-            if (*number == count->first) {
-                count->second++;
-                found = true;
-                break;
-            }
-        }
-
-        if (!found) {
-            counts.push_back(pair(*number, 1));
+    for (int number : numbers) {
+        if (counts.contains(number)) {
+            counts[number]++;
+        } else {
+            counts.insert(std::pair(number, 1));
         }
     }
 
     int max_count = 0;
-    int mode_value = 0;
-    for (auto count = counts.begin(); count < counts.end(); count++) {
-        if (count->second > max_count) {
-            mode_value = count->first;
-            max_count = count->second;
+    vector<int> mode_value;
+    for (pair<int, int> count : counts) {
+        if (count.second > max_count) {
+            mode_value.clear();
+            max_count = count.second;
+        }
+
+        if (count.second == max_count) {
+            mode_value.push_back(count.first);
         }
     }
 

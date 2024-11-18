@@ -11,7 +11,4 @@ vector<int> only_odds(const vector<int>&);
 vector<int> nums_between(const vector<int>&, int, int);
 double mean(const vector<int>&);
 double median(const vector<int>&);
-/**
- * Returns the mode. If there are multiple modes, the first one found is returned.
- */
-int mode(const vector<int>&);
+vector<int> mode(const vector<int>&);

@@ -1,3 +1,4 @@
+#include <algorithm>
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>
 #include <string>
@@ -84,20 +85,33 @@ TEST_CASE("Testing median function") {
     CHECK_CLOSE_ENOUGH(median_value, 2.5);
 }
 
+bool unordered_vector_equals(const vector<int>& first, const vector<int>& second) {
+    vector<int> second_copy = second;
+    for (int value : first) {
+        vector<int>::iterator position = find(second_copy.begin(), second_copy.end(), value);
+        if (position == second_copy.end()) {
+            return false;
+        }
+        second_copy.erase(position);
+    }
+
+    return second_copy.empty();
+}
+
 TEST_CASE("Testing mode function") {
     vector<int> nums = {11, 2, 13, 4, 10, 26, 7, 88, 19, 20, 14, 5, 32};
-    int mode_value = mode(nums);
-    CHECK_EQ(mode_value, 11);
+    vector<int> mode_value = mode(nums);
+    CHECK(unordered_vector_equals(mode_value, nums));
 
     nums = { 1, 2, 2, 3 };
     mode_value = mode(nums);
-    CHECK_EQ(mode_value, 2);
+    CHECK(unordered_vector_equals(mode_value, vector<int>({ 2 })));
 
     nums = { 1, 2, 2, 3, 3, 3, 4 };
     mode_value = mode(nums);
-    CHECK_EQ(mode_value, 3);
+    CHECK(unordered_vector_equals(mode_value, vector<int>({ 3 })));
 
     nums = { 1, 2, 2, 3, 3, 4 };
     mode_value = mode(nums);
-    CHECK_EQ(mode_value, 2);
+    CHECK(unordered_vector_equals(mode_value, vector<int>({ 2, 3 })));
 }
