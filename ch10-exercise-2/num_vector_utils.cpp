@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <unordered_map>
 #include <utility>
 #include <vector>
 using namespace std;
@@ -82,14 +83,19 @@ int mode(const vector<int>& numbers) {
     vector<pair<int, int>> counts;
 
     for (auto number = numbers.begin(); number < numbers.end(); number++) {
+        bool found = false;
+
         for (auto count = counts.begin(); count < counts.end(); count++) {
             if (*number == count->first) {
                 count->second++;
+                found = true;
                 break;
             }
         }
 
-        counts.push_back(pair(*number, 1));
+        if (!found) {
+            counts.push_back(pair(*number, 1));
+        }
     }
 
     int max_count = 0;
