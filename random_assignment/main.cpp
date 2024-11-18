@@ -9,18 +9,17 @@ int main() {
     vector<vector<string>> input = parse(cin);
     vector<string> students = input[0];
     vector<string> assignments = input[1];
-    vector<string> assignments_copy = assignments;
+    vector<string> students_copy = students;
 
     srand(time(NULL));
 
-    for (auto student = students.begin(); student < students.end(); student++) {
-        if (assignments_copy.empty()) {
-            assignments_copy = assignments;
+    for (string assignment : assignments) {
+        if (students_copy.empty()) {
+            students_copy = students;
         }
 
-        int rand_value = rand();
-        int idx = floor(((float) rand_value / (float) RAND_MAX) * (float) assignments_copy.size());
-        cout << *student << " will present " << assignments_copy[idx] << endl;
-        assignments_copy.erase(assignments_copy.begin() + idx);
+        int idx = rand() % students_copy.size();
+        cout << students_copy[idx] << " will present " << assignment << endl;
+        students_copy.erase(students_copy.begin() + idx);
     }
 }
