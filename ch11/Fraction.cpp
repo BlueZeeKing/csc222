@@ -32,3 +32,6 @@ Fraction Fraction::plus(const Fraction& other) const {
     sum.reduce();
     return sum;
 }
+
+Fraction Fraction::minus(const Fraction& other) const {
+}

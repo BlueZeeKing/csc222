@@ -25,3 +25,17 @@ TEST_CASE("Testing plus") {
     CHECK_EQ(sum.numerator, 7);
     CHECK_EQ(sum.denominator, 6);
 }
+
+TEST_CASE("Testing minus") {
+    Fraction fraction(5, 10);
+    Fraction fraction2(15, 10);
+    Fraction difference = fraction.minus(fraction2);
+    CHECK_EQ(difference.numerator, -1);
+    CHECK_EQ(difference.denominator, 1);
+
+    fraction = Fraction(1, 1);
+    fraction2 = Fraction(1, 6);
+    difference = fraction.minus(fraction2);
+    CHECK_EQ(difference.numerator, 5);
+    CHECK_EQ(difference.denominator, 6);
+}

@@ -9,4 +9,5 @@ struct Fraction {
 
     void print() const;
     Fraction plus(const Fraction&) const;
+    Fraction minus(const Fraction&) const;
 };
