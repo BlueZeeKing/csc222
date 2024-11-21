@@ -41,3 +41,5 @@ Fraction Fraction::times(const Fraction& other) const {
     product.reduce();
     return product;
 }
+Fraction Fraction::divided_by(const Fraction& other) const {
+}

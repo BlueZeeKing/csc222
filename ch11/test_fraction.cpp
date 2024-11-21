@@ -53,3 +53,17 @@ TEST_CASE("Testing times") {
     CHECK_EQ(product.numerator, 1);
     CHECK_EQ(product.denominator, 3);
 }
+
+TEST_CASE("Testing divide by") {
+    Fraction fraction(5, 10);
+    Fraction fraction2(15, 10);
+    Fraction quotient = fraction.divided_by(fraction2);
+    CHECK_EQ(quotient.numerator, 1);
+    CHECK_EQ(quotient.denominator, 3);
+
+    fraction = Fraction(2, 1);
+    fraction2 = Fraction(1, 6);
+    quotient = fraction.divided_by(fraction2);
+    CHECK_EQ(quotient.numerator, 12);
+    CHECK_EQ(quotient.denominator, 1);
+}
