@@ -37,4 +37,7 @@ Fraction Fraction::minus(const Fraction& other) const {
     return this->plus(Fraction(-other.numerator, other.denominator));
 }
 Fraction Fraction::times(const Fraction& other) const {
+    Fraction product(other.numerator * this->numerator, other.denominator * this->denominator);
+    product.reduce();
+    return product;
 }
