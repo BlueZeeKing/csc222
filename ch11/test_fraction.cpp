@@ -39,3 +39,17 @@ TEST_CASE("Testing minus") {
     CHECK_EQ(difference.numerator, 5);
     CHECK_EQ(difference.denominator, 6);
 }
+
+TEST_CASE("Testing times") {
+    Fraction fraction(5, 10);
+    Fraction fraction2(15, 10);
+    Fraction product = fraction.times(fraction2);
+    CHECK_EQ(product.numerator, 3);
+    CHECK_EQ(product.denominator, 4);
+
+    fraction = Fraction(2, 1);
+    fraction2 = Fraction(1, 6);
+    product = fraction.times(fraction2);
+    CHECK_EQ(product.numerator, 1);
+    CHECK_EQ(product.denominator, 3);
+}

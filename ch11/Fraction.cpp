@@ -36,3 +36,5 @@ Fraction Fraction::plus(const Fraction& other) const {
 Fraction Fraction::minus(const Fraction& other) const {
     return this->plus(Fraction(-other.numerator, other.denominator));
 }
+Fraction Fraction::times(const Fraction& other) const {
+}
