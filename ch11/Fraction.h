@@ -7,5 +7,6 @@ struct Fraction {
 
     void reduce();
 
+    void print() const;
     Fraction plus(const Fraction&) const;
 };

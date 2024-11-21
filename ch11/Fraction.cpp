@@ -1,4 +1,6 @@
 #include "Fraction.h"
+#include <iostream>
+using namespace std;
 
 Fraction::Fraction() {
     numerator = 0;
@@ -19,6 +21,10 @@ void Fraction::reduce() {
             break;
         }
     }
+}
+
+void Fraction::print() const {
+    cout << numerator << "/" << denominator << endl;
 }
 
 Fraction Fraction::plus(const Fraction& other) const {
