@@ -5,6 +5,7 @@ struct Time {
 
     Time(double);
     Time(int, int, double);
+    Time(int, int, int);
 
     void print() const;
     void increment(double);

@@ -8,6 +8,14 @@ Time::Time(double secs) {
 }
 
 Time::Time(int hours, int minutes, double seconds) {
+    cout << "First constructor" << endl;
+    this->hour = hours;
+    this->minute = minutes;
+    this->second = seconds;
+}
+
+Time::Time(int hours, int minutes, int seconds) {
+    cout << "Second constructor" << endl;
     this->hour = hours;
     this->minute = minutes;
     this->second = seconds;
