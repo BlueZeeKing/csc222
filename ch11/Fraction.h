@@ -4,5 +4,8 @@ struct Fraction {
 
     Fraction();
     Fraction(int, int);
+
+    void reduce();
+
     Fraction plus(const Fraction&) const;
 };
