@@ -36,10 +36,13 @@ Fraction Fraction::plus(const Fraction& other) const {
 Fraction Fraction::minus(const Fraction& other) const {
     return this->plus(Fraction(-other.numerator, other.denominator));
 }
+
 Fraction Fraction::times(const Fraction& other) const {
     Fraction product(other.numerator * this->numerator, other.denominator * this->denominator);
     product.reduce();
     return product;
 }
+
 Fraction Fraction::divided_by(const Fraction& other) const {
+    return this->times(Fraction(other.denominator, other.numerator));
 }
