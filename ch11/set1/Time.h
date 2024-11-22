@@ -13,7 +13,7 @@ struct Time {
 
     string to_string() const;
 
-    Time operator+(const Time&);
+    Time operator+(const Time&) const;
 };
 
 ostream& operator<<(ostream&, const Time&);

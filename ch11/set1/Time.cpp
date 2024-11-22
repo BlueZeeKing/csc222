@@ -34,7 +34,7 @@ string Time::to_string() const {
     return format("{}:{:02}:{:02}", hours, minutes, seconds);
 }
 
-Time Time::operator+(const Time& other) {
+Time Time::operator+(const Time& other) const {
     Time output;
 
     output.seconds = seconds + other.seconds;

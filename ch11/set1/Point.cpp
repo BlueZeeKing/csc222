@@ -11,7 +11,7 @@ Point::Point(double x, double y) {
     this->y = y;
 }
 
-Point Point::operator+(const Point& other) {
+Point Point::operator+(const Point& other) const {
     return Point(x + other.x, y + other.y);
 }
 

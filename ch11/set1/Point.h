@@ -8,6 +8,6 @@ struct Point {
     Point();
     Point(double, double);
 
-    Point operator+(const Point&);
+    Point operator+(const Point&) const;
     string to_string() const;
 };
