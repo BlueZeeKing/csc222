@@ -52,6 +52,7 @@ Time Time::operator+(const Time& other) {
     return output;
 }
 
-ostream& operator<<(ostream& stream, const Time&) {
+ostream& operator<<(ostream& stream, const Time& time) {
+    stream << time.to_string();
     return stream; 
 }
