@@ -2,6 +2,10 @@
 using namespace std;
 
 struct Time {
+    int seconds;
+    int minutes;
+    int hours;
+
     Time(int);    
     Time();    
 
