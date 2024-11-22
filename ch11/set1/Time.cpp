@@ -3,6 +3,10 @@
 #include <cmath>
 using namespace std;
 
+Time::Time(int, int, int) {}
+
+Time::Time(int, int) {}
+
 Time::Time(int secs) {
     this->seconds = secs;
 

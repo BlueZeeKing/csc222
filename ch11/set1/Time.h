@@ -6,6 +6,8 @@ struct Time {
     int minutes;
     int hours;
 
+    Time(int, int, int);    
+    Time(int, int);    
     Time(int);    
     Time();    
 
