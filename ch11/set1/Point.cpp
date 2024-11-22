@@ -1,4 +1,5 @@
 #include "Point.h"
+#include <format>
 
 Point::Point() {
     x = 0.0;
@@ -15,5 +16,5 @@ Point Point::operator+(const Point& other) {
 }
 
 string Point::to_string() const {
-    return "";
+    return format("({:6f}, {:6f})", x, y);
 }
