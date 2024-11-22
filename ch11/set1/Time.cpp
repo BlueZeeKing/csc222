@@ -3,12 +3,19 @@
 #include <cmath>
 using namespace std;
 
-Time::Time(int, int, int) {}
+Time::Time(int hrs, int mins, int secs) {
+    hours = hrs;
+    minutes = mins;
+    seconds = secs;
+}
 
-Time::Time(int, int) {}
+Time::Time(int hrs, int mins) {
+    hours = hrs;
+    minutes = mins;
+}
 
 Time::Time(int secs) {
-    this->seconds = secs;
+    seconds = secs;
 
     minutes = seconds / 60;
     seconds %= 60;
