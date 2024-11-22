@@ -1,6 +1,9 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>
+#include <string>
 #include "Point.h"
+
+using namespace std;
 
 TEST_CASE("Test can create Points") {
     Point p1;
@@ -17,4 +20,10 @@ TEST_CASE("Test can add Points") {
     Point p3 = p1 + p2;
     CHECK(p3.x == 8.0);
     CHECK(p3.y == 6.0);
+}
+
+TEST_CASE("Test can render Points as strings") {
+    Point p(8, 7);
+    string expected = "(8.000000, 7.000000)";
+    CHECK(p.to_string() == expected);
 }
