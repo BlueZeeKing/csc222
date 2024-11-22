@@ -15,3 +15,5 @@ struct Time {
 
     Time operator+(const Time&);
 };
+
+ostream& operator<<(ostream&, const Time&);
