@@ -12,4 +12,6 @@ struct Time {
     Time();    
 
     string to_string() const;
+
+    Time operator+(const Time&);
 };

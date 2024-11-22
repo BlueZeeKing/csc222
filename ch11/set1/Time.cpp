@@ -33,3 +33,7 @@ Time::Time() {
 string Time::to_string() const {
     return format("{}:{:02}:{:02}", hours, minutes, seconds);
 }
+
+Time Time::operator+(const Time&) {
+    return Time();
+}
