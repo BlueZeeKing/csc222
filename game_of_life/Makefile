@@ -1,23 +1,22 @@
-build/main.out: build/main.o build/cell.o build/grid.o build/conway.o
-	g++ build/main.o build/cell.o build/grid.o build/conway.o -lncursesw -o build/main.out
+CC=g++
+STD=c++23
 
-build/cell.o: cell.cpp cell.h
+build/game_of_life: build/main.o build/cell.o build/grid.o build/conway.o
+	$(CC) -o $@ $^ -std=$(STD) -lncursesw
+
+build/%.o: %.cpp
 	@mkdir -p build
-	g++ cell.cpp -c -o build/cell.o
+	@$(CC) -MM -MT $@ $< > build/$*.d
+	$(CC) -c -o $@ $< -std=$(STD)
 
-build/grid.o: grid.cpp grid.h cell.h
-	@mkdir -p build
-	g++ grid.cpp -c -o build/grid.o
+-include build/*.d
 
-build/conway.o: conway.cpp conway.h grid.h
-	@mkdir -p build
-	g++ conway.cpp -c -o build/conway.o
+.PHONY: test all clean
 
-build/main.o: main.cpp conway.h 
-	@mkdir -p build
-	g++ main.cpp -c -o build/main.o
+test: build/test_fraction
+	./build/test_fraction
 
-.PHONY: clean
+all: build/test_fraction build/exercise0 build/main
 
 clean:
 	rm -rf build

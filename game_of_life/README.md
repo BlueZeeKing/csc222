@@ -2,15 +2,7 @@
 
 Controls:
 
-q always quits
-
-While paused:
-
-wasd/hjkl to move the cursor
-p to run
-space to toggle cell under cursor
-
-While running:
-
-p to pause
-any character will process the next cycle immediately
+q to quit
+p to play/pause
+wasd or hjkl to move the cursor
+space to toggle the cell
