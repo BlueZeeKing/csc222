@@ -52,6 +52,6 @@ bool Card::operator<(const Card& c2) const {
 }
 
 bool Card::operator>=(const Card& c2) const {
-    return false;
+    return !(*this < c2);
 }
 
