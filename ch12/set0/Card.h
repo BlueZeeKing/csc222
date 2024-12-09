@@ -11,4 +11,5 @@ struct Card
     bool operator==(const Card&) const;
     bool operator>(const Card&) const;
     bool operator<=(const Card&) const;
+    bool operator<(const Card&) const;
 };
