@@ -30,3 +30,13 @@ TEST_CASE("Cards Equal") {
     Card c3;
     CHECK_NE(c1, c3);
 }
+
+TEST_CASE("Cards greater than") {
+    Card c1(3, 12);
+    Card c2(4, 12);
+    CHECK_GT(c2, c1);
+    Card c3(3, 11);
+    CHECK_GT(c1, c3);
+    Card c4(3, 11);
+    CHECK(!(c3 > c4));
+}
