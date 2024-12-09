@@ -70,3 +70,11 @@ TEST_CASE("Cards greater than or equal too") {
     Card c4(3, 11);
     CHECK(c3 >= c4);
 }
+
+TEST_CASE("Test comparisons with Aces") {
+    Card c1(4, 1);
+    Card c2(4, 2);
+    Card c3(4, 13);
+    CHECK((c1 > c2) == true);
+    CHECK((c1 > c3) == true);
+}
