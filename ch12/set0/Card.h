@@ -8,4 +8,5 @@ struct Card
     Card();
     Card(int, int);
     string to_string() const;
+    bool operator==(const Card&) const;
 };

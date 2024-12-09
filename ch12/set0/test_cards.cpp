@@ -22,3 +22,11 @@ TEST_CASE("Test can render Cards") {
     Card c5;
     CHECK(c5.to_string() == "Joker");
 }
+
+TEST_CASE("Cards Equal") {
+    Card c1(3, 12);
+    Card c2(3, 12);
+    CHECK_EQ(c1, c2);
+    Card c3;
+    CHECK_NE(c1, c3);
+}
