@@ -33,6 +33,9 @@ bool Card::operator>(const Card& c2) const {
     if (suit > c2.suit) return true;
     if (suit < c2.suit) return false;
 
+    if (rank == 1 && c2.rank != 1) return true;
+    if (c2.rank == 1 && rank != 1) return true;
+
     // if suits are equal, check ranks
     if (rank > c2.rank) return true;
     if (rank < c2.rank) return false;
