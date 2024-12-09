@@ -42,3 +42,7 @@ bool Card::operator>(const Card& c2) const {
     // if ranks are equal too, 1st card is not greater than the 2nd
     return false;
 }
+
+bool Card::operator<=(const Card& c2) const {
+    return false;
+}
