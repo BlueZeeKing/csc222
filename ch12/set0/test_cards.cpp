@@ -60,3 +60,13 @@ TEST_CASE("Cards less than") {
     Card c4(3, 11);
     CHECK(!(c3 < c4));
 }
+
+TEST_CASE("Cards greater than or equal too") {
+    Card c1(3, 12);
+    Card c2(4, 12);
+    CHECK(c2 >= c1);
+    Card c3(3, 11);
+    CHECK(c1 >= c3);
+    Card c4(3, 11);
+    CHECK(c3 >= c4);
+}
