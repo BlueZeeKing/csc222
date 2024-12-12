@@ -29,6 +29,12 @@ Fraction build_fraction(int row, int col, WINDOW* win, string initial_num) {
 
         mvwchgat(stdscr, is_at_top ? row : row + 2, col + cursor_pos, 1, A_NORMAL, 0, nullptr);
 
+        for (int current_col = col; current_col < col + max(num.length(), den.length()) + 1; current_col++) {
+            for (int current_row = row; current_row <= row + 2; current_row++) {
+                mvwaddch(win, current_row, current_col, ' ');
+            }
+        }
+
         switch (ch) {
         case KEY_UP:
             is_at_top = true;
@@ -45,12 +51,6 @@ Fraction build_fraction(int row, int col, WINDOW* win, string initial_num) {
                 is_at_top = false;
                 cursor_pos = min((int) den.length(), cursor_pos);
             } else {
-                for (int current_col = col; current_col < col + max(num.length(), den.length()) + 1; current_col++) {
-                    for (int current_row = row; current_row <= row + 2; current_row++) {
-                        mvwaddch(win, current_row, current_col, ' ');
-                    }
-                }
-
                 return Fraction(stoi(num), stoi(den));
             }
             break;
@@ -74,10 +74,13 @@ Fraction build_fraction(int row, int col, WINDOW* win, string initial_num) {
             }
             break;
         case KEY_BACKSPACE:
+            if (cursor_pos == 0) {
+                break;
+            }
             if (is_at_top) {
-                num.erase(num.begin() + cursor_pos);
+                num.erase(num.begin() + cursor_pos - 1);
             } else {
-                den.erase(den.begin() + cursor_pos);
+                den.erase(den.begin() + cursor_pos - 1);
             }
             cursor_pos--;
             break; 
