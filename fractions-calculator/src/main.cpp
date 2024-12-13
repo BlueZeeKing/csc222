@@ -123,7 +123,7 @@ int main() {
         Fraction second = get<Fraction>(*(i + 1));
 
         input.erase(i);
-        input.erase(i+1);
+        input.erase(i);
         if (op == Operator::Multiply) {
             *(i - 1) = first * second;
         } else {
@@ -142,7 +142,7 @@ int main() {
         Fraction second = get<Fraction>(*(i + 1));
 
         input.erase(i);
-        input.erase(i+1);
+        input.erase(i);
         if (op == Operator::Add) {
             *(i - 1) = first + second;
         } else {
@@ -151,7 +151,33 @@ int main() {
         i--;
     }
 
-    get<Fraction>(input[0]).output(1, current_col);
+    for (auto i = input.begin(); i < input.end(); i++) {
+        char symbol;
+
+        switch (i->index()) {
+        case 0:
+            current_col += get<Fraction>(*i).output(1, current_col);
+            break;
+        case 1:
+            switch (get<Operator>(*i)) {
+            case Add:
+                symbol = '+';
+                break;
+            case Subtract:
+                symbol = '-';
+                break;
+            case Multiply:
+                symbol = '*';
+                break;
+            case Divide:
+                symbol = '/';
+                break;
+            }
+            mvaddch(2, current_col, symbol);
+            current_col += 2;
+            break;
+        }
+    }
 
     getch();
 
